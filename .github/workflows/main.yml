@@ -1,0 +1,14 @@
+name: Vérification de la conformité PSR
+on:
+  push:
+    branches: [ main ]  # Changer la branche si nécessaire
+jobs:
+  check-code-style:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vérification de la conformité PSR
+        uses: actions/checkout@v2
+      - name: Accéder au répertoire du code
+        run: cd /Users/jerem/Documents/L2/Qualite/TD5/PHP_CodeSniffer
+      - name: Lancer la vérification de la conformité PSR
+        run: php bin/phpcs --standard=PSR1,PSR12 /Users/jerem/Documents/L2/Qualite/TD6/Validateur.php
