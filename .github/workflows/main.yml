@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Vérification de la conformité PSR
         uses: actions/checkout@v2
+      - name: Installer Git
+        run: sudo apt-get update && sudo apt-get install git
       - name: Cloner PHP_CodeSniffer
         run: git clone https://github.com/squizlabs/PHP_CodeSniffer.git
       - name: Accéder au répertoire de PHP_CodeSniffer
