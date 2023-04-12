@@ -1,6 +1,5 @@
 <?php
 
-namespace UPJV\Insset\Validateur;
 
 class Validateur
 {
