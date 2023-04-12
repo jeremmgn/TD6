@@ -5,6 +5,7 @@ on:
 jobs:
   check-code-style:
     runs-on: ubuntu-latest
+    container: php:7.4-cli-alpine
     steps:
       - name: Vérification de la conformité PSR
         uses: actions/checkout@v2
