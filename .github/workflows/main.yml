@@ -1,7 +1,7 @@
 name: Vérification de la conformité PSR
 on:
   push:
-    branches: [ main ]  # Changer la branche si nécessaire
+    branches: [ master ]
 jobs:
   check-code-style:
     runs-on: ubuntu-latest
