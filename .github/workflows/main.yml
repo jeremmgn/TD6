@@ -1,7 +1,7 @@
 name: Vérification de la conformité PSR
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]  # Changer la branche si nécessaire
 jobs:
   check-code-style:
     runs-on: ubuntu-latest
@@ -9,7 +9,15 @@ jobs:
     steps:
       - name: Vérification de la conformité PSR
         uses: actions/checkout@v2
-      - name: Accéder au répertoire du code
-        run: cd /Users/jerem/Documents/L2/Qualite/TD5/PHP_CodeSniffer
+      - name: Cloner PHP_CodeSniffer
+        run: git clone https://github.com/squizlabs/PHP_CodeSniffer.git
+      - name: Accéder au répertoire de PHP_CodeSniffer
+        run: cd PHP_CodeSniffer
+      - name: Installer les dépendances de PHP_CodeSniffer
+        run: composer install
+      - name: Afficher l'aide de PHP_CodeSniffer
+        run: php bin/phpcs -h
+      - name: Afficher l'aide de PHP_CodeBeautifier
+        run: php bin/phpcbf -h
       - name: Lancer la vérification de la conformité PSR
-        run: php bin/phpcs --standard=PSR1,PSR12 /Users/jerem/Documents/L2/Qualite/TD6/Validateur.php
+        run: php PHP_CodeSniffer/bin/phpcs --standard=PSR1,PSR12 /Users/jerem/Documents/L2/Qualite/TD6/Validateur.php
